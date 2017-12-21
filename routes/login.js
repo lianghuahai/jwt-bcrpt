@@ -3,6 +3,7 @@ var router = express.Router();
 var usertb= require('../dbConfig/userTable');
 var jwt = require('jsonwebtoken');
 var bcrypt = require('bcrypt');
+var loginRequired = require('./loginRequired');
 /* GET users listing. */
 router.get('/', function(req, res, next) {
     console.log("get");
@@ -11,16 +12,29 @@ router.get('/', function(req, res, next) {
     console.log(req.body.password);
     res.send('ok');
 });
-
+router.post('/getuser', function(req, res, next) {
+  var username = req.body.username;
+   usertb.find({},function (err, data) {
+       if (err) return console.error(err);
+      res.json(data)
+     })
+});
+router.get('/list',loginRequired.check_token, function(req, res, next) {
+  var username = req.body.username;
+  usertb.find({},function (err, data) {
+      if (err) return console.error(err);
+     res.json(data)
+    })
+});
 router.post('/', function(req, res, next) {
     console.log("coming login");
     var username = req.body.username;
-    // var id = req.body._id;
+   
     usertb.find({username:username},function (err, data) {
         if (err) return console.error(err);
         if(data.length>0){
           if(bcrypt.compareSync(req.body.password,data[0].password)){
-            res.json({token: jwt.sign({ username: data.username, _id: data._id}, 'RESTFULAPIs')});
+            res.json({token: jwt.sign({ username: data.username, _id: data._id}, 'nihao',{expiresIn: 60*60*24 })});
           }else{
             res.send('Password is not correct');
           }
