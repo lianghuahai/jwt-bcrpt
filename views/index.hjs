@@ -10,5 +10,17 @@
       password<input type="text" name='password'/>
       <input type="submit" />
     </form>
+    <form action="/profile/mutifile" method="post" enctype="multipart/form-data">
+      <input type="file" name="myimage1"><br>
+      <input type="file" name="myimage2"><br>
+      <input type="file" name="myimage3"><br>
+      <input type="submit" name="submit" value="submit"/>
+    </form>
+    <h1>----------one image-----------------</h1>
+    <form action="/profile/singlefile" method="post" enctype="multipart/form-data">
+      <input type="file" name="myimage1"><br>
+      <!-- <input type="file" name="myimage3"><br> -->
+      <input type="submit" name="submit" value="submit"/>
+    </form>
   </body>
 </html>
