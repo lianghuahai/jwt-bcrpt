@@ -10,6 +10,7 @@ var users = require('./routes/users');
 var login = require('./routes/login');
 var register = require('./routes/register');
 var profile = require('./routes/profile');
+var randomNum = require('./routes/randomNum');
 var cloudinaryImage = require('./routes/cloudinaryImage');
 var app = express();
 
@@ -30,6 +31,7 @@ app.use('/users', users);
 app.use('/login', login);
 app.use('/register', register);
 app.use('/profile', profile);
+app.use('/randomNum', randomNum);
 app.use('/cloudImage', cloudinaryImage);
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

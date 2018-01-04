@@ -11,6 +11,7 @@ cloudinary.config({
   
 router.get('/',  function (req, res, next) {
     console.log('11')
+    var url = req.body.image//myimage1
     cloudinary.uploader.upload("myimage1-1514751254148.jpg", function(result) { 
         console.log(result) 
       });
