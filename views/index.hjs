@@ -22,5 +22,8 @@
       <!-- <input type="file" name="myimage3"><br> -->
       <input type="submit" name="submit" value="submit"/>
     </form>
+    <img src='http://res.cloudinary.com/dijpdqnkj/image/upload/v1515098110/cff76xszyc6zgsa1dz1x.jpg' 
+    />
+
   </body>
 </html>

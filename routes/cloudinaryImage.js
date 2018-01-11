@@ -12,8 +12,9 @@ cloudinary.config({
 router.get('/',  function (req, res, next) {
     console.log('11')
     var url = req.body.image//myimage1
-    cloudinary.uploader.upload("myimage1-1514751254148.jpg", function(result) { 
-        console.log(result) 
+    cloudinary.uploader.upload("3f44393cd038fc5ddcfb4fa6830bacc5.jpg", function(result) { 
+        console.log(result)
+        var imageUrl = result.url; 
       });
     //   cloudinary.uploader.upload("/public/images/myimage1-1514751254148.jpg", {tags: 'express_sample'})
     //   .then(function (image) {
